@@ -1,0 +1,47 @@
+spring.application.name=springboot    
+server.port=8080
+#server.servlet.context-path=/bootjournal
+spring.webservices.servlet.load-on-startup=1
+
+#JSP Views Config...............................
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+#Thymlyf Template Config======
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.enabled=true
+spring.thymeleaf.mode=html5
+spring.thymeleaf.encoding=UTF-8
+spring.thymeleaf.cache=false
+
+#MongoDB Configuration......................
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=journalDB
+#This is for ambaded collections.
+spring.data.mongodb.auto-index-creation=true
+
+#jackson Date Config
+spring.jackson.date-format=yyyy-MM-dd'T'HH:mm:ss
+
+
+#Logger Config.......................................
+#Logger priority -> trace->debug->info->warn->error
+#Deisable all logg of the project.
+#logging.level.root=off
+logging.level.com.springboot.service=error
+
+#Logger Console Config=======
+logging.pattern.console = %d{yyy-MM-dd HH:mm:ss} - %msg%n
+
+#Logger File Config========
+logging.file.name=logs/lifecycle.log
+#logging.file.path=myapp/logs/ - (optional)
+#Logeer patter -> "-->" separator, %msg% msg formate, "n" line change,
+# "[%thread]" name of thread, "%-5level" level of logs,
+# "%logger{30} logger msg truncated to 30char."
+logging.pattern.file= %d{yyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} --> %msg%n
+#File size before rolling up(after this capacity new file created).
+logging.logback.rollingpolicy.max-file-size = 2KB
+#Number of days log file will be in memory.
+logging.logback.rollingpolicy.max-history = 1

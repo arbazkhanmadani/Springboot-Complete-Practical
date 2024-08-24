@@ -1,0 +1,10 @@
+#for development profile 
+#dev is the name of developemnt file
+spring.profiles.active=dev
+
+#Can also give multiple files by , seprated.
+#spring.profiles.active=dev,prod
+
+#for deployment profile 
+#prod is the name of deployement file (application-prod.properties)
+#spring.profiles.active=prod

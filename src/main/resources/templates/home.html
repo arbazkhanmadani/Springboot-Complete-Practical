@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- th:replace="base::layout(~{::section})" => Template Inheritance -->
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+
+<section>
+
+	<!-- Fragement Example -->
+	<!-- Include the 'greeting' fragment with a parameter -->
+    <div th:replace="greeting::include('John','weak')"></div>
+	<div th:replace="greeting::insert('John','weak')"></div>
+	<div th:replace="greeting::replacefrag('John','weak')"></div>
+	
+	<!-- text tags -->	
+	<h1>This is the age of arbaz : <span th:text=${age}></span></h1>
+	
+	<!-- Conditional Elvis operator -->
+	<p th:text="${!isAllow ? 'He is allowed to vote' : 'Not allowed'}"></p>
+
+	<!-- If/Else operator -->
+	<p th:if="${isAllow}" th:text="'He is allowed to vote'"></p>
+	<p th:unless="${isAllow}" th:text="'Not allowed'"></p>
+
+	<!-- Switch-Case  It mandatory to put '' in "" for string-->
+	<div th:switch="${age}">
+        <p th:case="'21'" th:text="'Your order is pending.'"></p>
+        <p th:case="22" th:text="'Your order has been shipped.'"></p>
+        <p th:case="20" th:text="'Your order has been delivered.'"></p>
+        <p th:case="*" th:text="Unknown status.'"></p>
+    </div>
+
+	
+	<!-- Loop Example -->
+	<h1>Advanced Loop Example</h1>
+    <ul>
+        <li th:each="n, idx : ${names}"
+            th:text="'Item ' + ${idx.index} + ': ' + ${n}"
+        ></li>
+    </ul>
+
+
+	<!-- Utility Method Example -->
+	<h1>Method Example</h1>
+	<h5>String method.................</h5>
+	<p th:text="${#strings.toUpperCase('Arbaz')}"></p>
+	<p th:text="${#strings.concat('Arbaz',' Khan')}"></p>
+	<p th:text="${#strings.trim('       dsdsf d      ')}"></p>
+	
+	<h5>List method.................</h5>
+	<p th:text="${#lists.size(names)}"></p>
+	<p th:text="${#lists.contains(names,'Arbaz')}"></p>
+
+
+	<!-- image embadding -->
+    <img th:src="@{/images/twillio-Springboot.png}" alt="Sample Image" />
+</section>
+
+<!-- ${pageContext.request.contextPath} -> for getting context path -->
+<script src="/js/myjs.js"></script>
+
+</body>
+</html>

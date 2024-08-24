@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<body>
+
+<div id="inc" th:fragment="include(name,surname)">
+	<h1>this is include fragement....... : <span th:text="${name}+' '+ ${surname}"></span></h1>
+</div>
+
+<div id="ins" th:fragment="insert(name,surname)">
+	<h1>this is insert fragement....... : <span th:text="${name}+' '+ ${surname}"></span></h1>
+</div>
+
+
+<div id="rep" th:fragment="replacefrag(name,surname)">
+	<h1>this is replace fragement....... : <span th:text="${name}+' '+ ${surname}"></span></h1>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<!-- th:fragment="layout(home)" => Template Inheritance -->
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(home)">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+
+<div th:replace="${home}"></div>
+
+<!-- ${pageContext.request.contextPath} -> for getting context path -->
+<script src="/js/myjs.js"></script>
+
+</body>
+</html>
